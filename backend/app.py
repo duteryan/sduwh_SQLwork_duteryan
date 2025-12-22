@@ -6,14 +6,10 @@ import jwt
 import datetime
 from db import get_conn
 
-##### uvicorn app:app --reload
 
 # ===== 数据库连接 =====
 connection_string = (
-    'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=LAPTOP-05MI2SGJ;'
-    'DATABASE=Xian_Yv_SQL;'
-    'Trusted_Connection=yes;'
+#此处
 )
 
 app = FastAPI()
@@ -27,7 +23,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ===== 数据模型 =====
 class LoginData(BaseModel):
     username: str
     password: str
@@ -102,7 +97,7 @@ def login(data: LoginData):
     finally:
         conn.close()
 
-# 验证Token接口（同样修改为接口内获取连接）
+# 验证Token接口
 @app.post("/api/verify-token")
 def verify_token(token: str):
     conn = get_conn()
@@ -168,7 +163,7 @@ def get_items(
     """
     params = []
 
-    # 添加筛选条件
+    # 筛选条件
     if category_id:
         sql += " AND i.CategoryID = ?"
         params.append(category_id)
@@ -179,14 +174,14 @@ def get_items(
         sql += " AND u.Username LIKE ?"
         params.append(f'%{seller}%')
 
-    # 添加排序条件
+    # 排序条件
     if sort == "price_asc":
         sql += " ORDER BY i.Price ASC"
     elif sort == "price_desc":
         sql += " ORDER BY i.Price DESC"
     elif sort == "views_desc":
         sql += " ORDER BY i.Views DESC"
-    else:  # 默认按发布日期降序
+    else: 
         sql += " ORDER BY i.PublishDate DESC"
 
     cursor.execute(sql, params)
@@ -1229,4 +1224,5 @@ def get_all_orders(request: Request):
         return {"success": False, "message": f"查询失败：{str(e)}"}
     finally:
         if conn:
+
             conn.close()
