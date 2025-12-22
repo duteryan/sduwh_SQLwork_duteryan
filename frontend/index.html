@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>崴砖二手交易系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner">
+        <a href="#" class="banner-text" onclick="goHome()">崴砖二手交易系统</a>
+        <div class="center-buttons" id="center-buttons">
+            <button class="auth-btn" onclick="showLogin()">登录</button>
+            <button class="auth-btn" onclick="showRegister()">注册</button>
+        </div>
+        <div class="nav-box" id="nav-box" style="display:none;">
+            <button class="nav-btn" onclick="showItems()">商品浏览</button>
+            <button class="nav-btn" onclick="showPublish()">发布商品</button>
+            <button class="nav-btn" onclick="showMe()">我的</button>
+            <button class="nav-btn" onclick="logout()">退出登录</button>
+        </div>
+    </div>
+    <div id="content"></div>
+    <div class="dual-panel-modal" id="admin-modal" style="display: none;">
+        <div class="modal-left-panel">
+            <div class="admin-card">
+                <h2 class="admin-title">管理员控制台</h2>
+                <button class="admin-btn" onclick="manageUserInfo()">管理用户信息</button>
+                <button class="admin-btn" onclick="manageProductInfo()">管理商品信息</button>
+                <button class="admin-btn" onclick="handleAbnormalTransactions()">处理异常交易</button>
+                <button class="admin-btn" onclick="showAdminInfo()">管理员信息</button>
+                <button class="admin-btn" onclick="adminLogout()">退出登录</button>
+            </div>
+        </div>
+        <div class="modal-right-panel">
+            <div class="panel-header">
+                <h3 class="panel-title">管理内容</h3>
+                <div class="search-container" id="user-search-container">
+                    <select class="search-mode-select" id="user-search-mode">
+                        <option value="username">用户名搜索</option>
+                        <option value="real_name">真实姓名搜索</option>
+                        <option value="phone">手机号搜索</option>
+                        <option value="email">邮箱搜索</option>
+                        <option value="role">角色搜索</option>
+                        <option value="user_id">用户ID搜索</option>
+                    </select>
+                    <input type="text" class="search-input" id="user-search-input" placeholder="请输入搜索内容...">
+                    <button class="user-query-btn" id="user-query-btn">查询</button>
+                </div>
+                <div class="item-search-container" id="item-search-container">
+                    <select class="item-search-mode" id="item-search-mode">
+                        <option value="item_id">ItemID搜索</option>
+                        <option value="item_name">标题搜索</option>
+                        <option value="description">描述搜索</option>
+                        <option value="status">状态筛选</option>
+                    </select>
+                    <input type="text" class="item-search-input" id="item-search-input" placeholder="请输入搜索内容...">
+                    <select class="item-sort-mode" id="item-sort-mode">
+                        <option value="create_time">时间排序</option>
+                        <option value="price">价格排序</option>
+                        <option value="item_id">ItemID排序</option>
+                    </select>
+                    <select class="sort-direction" id="sort-direction">
+                        <option value="desc">降序</option>
+                        <option value="asc">升序</option>
+                    </select>
+                    <button class="query-btn" id="item-query-btn">查询</button>
+                </div>
+            </div>
+            <div class="panel-content" id="admin-content">
+                <p style="color: #666; text-align: center; padding: 50px;">请选择左侧功能进行操作</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
