@@ -1,0 +1,1131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    height: 100vh;
+    background: url("https://www.wh.sdu.edu.cn/images/banner.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.auth-box {
+    position: absolute;
+    top: 100px;
+    right: 60px;
+}
+
+.auth-box button {
+    margin-left: 12px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+/* 红色渐变遮罩 */
+.banner::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(
+        to bottom,
+        rgba(240, 30, 60, 0.9),
+        rgba(240, 30, 60, 0.05)
+    );
+    pointer-events: none;
+}
+
+/* 标题 */
+.banner-text {
+    position: fixed;
+    z-index: 2;
+    top: 66px;
+    left: 78px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.banner-text,
+a.banner-text:visited,
+a.banner-text:hover,
+a.banner-text:active {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.auths-box {
+    position: fixed;
+    top: 107px;
+    right: 66px;
+    z-index: 3;
+    display: flex;
+    gap: 66px;
+}
+
+/* 主功能按钮 */
+.nav-box {
+    position: fixed;
+    top: 78px;
+    right: 100px;
+    z-index: 3;
+    display: flex;
+    gap: 55px;
+}
+
+.nav-btn {
+    padding: 10px 22px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(179, 0, 27, 0.85);
+    background-color: transparent;
+    border: 2px solid rgba(179, 0, 27, 0.75);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: rgba(179, 0, 27, 0.95);
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(179, 0, 27, 0.95);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 登录注册 */
+.auth-box {
+    position: fixed;
+    top: 101px;
+    right: 66px;
+    z-index: 3;
+    display: flex;
+    gap: 24px;
+}
+
+.auth-btn {
+    padding: 10px 22px;
+    font-size: 18px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.center-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 66px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: -10px;
+}
+.card-content input {
+  margin-bottom: 2px;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+.card-content button {
+    font-size: 16px;
+    padding: 8px 12px;
+    gap: 5px;
+}
+.card-content h2 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* 商品浏览面板样式 */
+.goods-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 商品列表头部 */
+.goods-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 10px;
+}
+
+/* 商品列表项 */
+.goods-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+/* 列表列宽设置 */
+.goods-col {
+    width: 25%;
+}
+
+/* 商品面板通用样式 */
+.goods-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 25px 0;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* 调整商品行布局 */
+.goods-item.first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 10%;
+    background: #fafafa;
+    font-size: 18px;
+}
+
+.goods-col:nth-child(2) {
+    width: 30%;
+}
+
+.goods-col:nth-child(3) {
+    width: 15%;
+    padding-left: 10px;
+}
+
+.goods-col:nth-child(4) {
+    width: 15%;
+    padding-left: 20px;
+}
+/* 同时调整容器内边距实现整体左移 */
+.goods-header, .goods-item {
+    padding-left: 15%;
+    padding-right: 10%;
+}
+
+/* 商品独立框样式 */
+.goods-item-box {
+    position: relative;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+}
+
+.goods-item-box:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 第二行：浏览数  */
+.goods-item.second-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px 50px 30px;
+    background: white;
+}
+
+.goods-item.second-row .view-count {
+    padding-left: 13.5%;
+    color: #999;
+    font-size: 15px;
+}
+
+/* 详情按钮样式 */
+.detail-btn {
+    padding: 6px 18px;
+    background-color: #b3001b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+.detail-btn:hover {
+    background-color: #990017;
+}
+
+/* 我的页面整体面板 */
+/* ===== 我的 面板 ===== */
+.my-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    background: #fff;
+    display: flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+    animation: slideUp 0.3s ease;
+    z-index: 999;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* 左侧栏 */
+.my-sidebar {
+    width: 25%;
+    border-right: 1px solid #eee;
+    background: #fafafa;
+}
+
+.my-tab {
+    padding: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+}
+
+.my-tab.active {
+    background: #fff;
+    color: #b3001b;
+    border-left: 4px solid #b3001b;
+    font-weight: bold;
+}
+
+/* 右侧内容 */
+.my-content {
+    width: 75%;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* 信息卡 */
+.info-card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    color: #666;
+}
+
+.info-value {
+    font-weight: 500;
+}
+
+/* 修改按钮 */
+.edit-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 10px 40px;
+    background: #b3001b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 订单 / 地址 */
+.order-item, .address-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 弹窗复用登录样式 */
+.auth-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+}
+
+.address-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+.addr-row {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.addr-label {
+    color: #666;
+    display: inline-block;
+    width: 80px;
+}
+
+.addr-value {
+    color: #333;
+}
+
+/* 筛选栏样式 */
+.filter-container {
+    padding: 15px 20px;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.filter-toggle {
+    background-color: #b3001b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 55px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s;
+}
+
+.filter-toggle:hover {
+    background-color: #990017;
+}
+
+.filter-content {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.filter-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 55px;
+    gap: 5px;
+}
+
+.filter-item label {
+    color: #666;
+    font-size: 14px;
+}
+
+.filter-item select, .filter-item input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.filter-btn {
+    background-color: #b3001b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-left: 55px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 22px;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #990017;
+}
+
+/* 订单项样式 */
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-info {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.order-status {
+    color: #b3001b;
+}
+
+/* 确认收货按钮样式 */
+.confirm-btn {
+    padding: 6px 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}
+
+/* 交易已完成文本样式 */
+.completed-text {
+    color: #666;
+    font-size: 14px;
+    padding: 6px 18px;
+}
+
+/* 优化订单信息显示样式 */
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* 状态标签样式细化 */
+.order-status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+}
+
+/* 不同状态的颜色区分 */
+.order-status[data-status="available"] {
+    background-color: #4CAF50; /* 在售 - 绿色 */
+}
+
+.order-status[data-status="ordered"] {
+    background-color: #FF9800; /* 已下单 - 橙色 */
+}
+
+.order-status[data-status="completed"] {
+    background-color: #2196F3; /* 已完成 - 蓝色 */
+}
+
+/* 状态标签样式细化 */
+.order-status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+}
+
+/* 不同状态的颜色区分 */
+.order-status[data-status="available"] {
+    background-color: #4CAF50; /* 在售 - 绿色 */
+}
+
+.order-status[data-status="ordered"] {
+    background-color: #FF9800; /* 待送货 - 橙色 */
+}
+
+.order-status[data-status="completed"] {
+    background-color: #2196F3; /* 已完成 - 蓝色 */
+}
+
+/* 取消按钮样式 */
+.cancel-btn {
+    padding: 4px 10px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 订单筛选区域样式 */
+.order-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.order-item:hover {
+    background-color: #f9f9f9;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 订单状态样式 */
+.order-status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-shipped {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
+/* 调整筛选器在订单页面的样式 */
+#my-content-area .filter-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+#my-content-area .filter-row {
+    display: flex;
+    gap: 20px;
+}
+
+#my-content-area .filter-item {
+    margin-left: 0;
+}
+
+/* 双栏模态框容器 */
+.dual-panel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 9999;
+}
+
+/* 左侧原模态框区域 */
+.modal-left-panel {
+    width: 36%;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    /* 新增以下样式实现内部内容垂直居中 */
+    display: flex;
+    flex-direction: column; /* 垂直方向排列子元素 */
+    justify-content: center; /* 垂直居中（整体内容居中） */
+}
+/* 右侧内容展示大框 */
+.modal-right-panel {
+    width: 70%;
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 右侧面板标题 */
+.panel-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 内容区域样式 */
+.panel-content {
+    min-height: calc(100% - 60px);
+}
+
+/* 保留原admin-card和admin-btn样式 */
+.admin-card {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    text-align: center;
+}
+
+.admin-title {
+    color: #b3001b;
+    margin-bottom: 40px;
+}
+
+.admin-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-btn:hover {
+    background-color: #b3001b;
+    color: white;
+    border-color: #b3001b;
+}
+
+/* 用户编辑模态框 */
+.user-edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* 层级高于管理员面板 */
+}
+
+.user-edit-card {
+    background: white;
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 删除用户按钮 */
+.delete-user-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-user-btn:hover {
+    background: darkred;
+}
+
+/* 表单样式 */
+.user-form-item {
+    margin-bottom: 15px;
+}
+
+.user-form-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.user-form-item input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 按钮组 */
+.modal-btn-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.save-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: #45a049;
+}
+
+.cancel-btn {
+    background: #666;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #555;
+}
+
+/* 右侧面板容器改造：添加滚动容器 */
+.modal-right-panel {
+    width: 70%;
+    background: white;
+    padding: 0; /* 移除原有padding，由子元素控制 */
+    overflow: hidden; /* 隐藏外层滚动，由内容区滚动 */
+}
+
+/* 固定的标题+搜索栏区域 */
+.panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 固定的标题样式 */
+.panel-title {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    padding-bottom: 0;
+    border: none;
+    flex: 0 0 auto;
+}
+
+/* 内容滚动区域 */
+.panel-content {
+    height: calc(100vh - 82px); /* 减去标题栏高度 */
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.search-btn {
+    padding: 6px 15px;
+    background: #b3001b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* 商品管理列表适配 */
+.modal-right-panel .panel-content {
+    font-size: 14px;
+}
+
+/* 管理按钮统一样式 */
+.edit-btn {
+    background-color: #b3001b;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #8a0015;
+}
+
+/* 禁用状态的管理按钮（若需要） */
+.edit-btn:disabled,
+.edit-btn[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 商品编辑模态框 */
+.item-edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* 层级高于管理员面板 */
+}
+
+.item-edit-card {
+    background: white;
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 状态操作按钮（下架/退货退款） */
+.item-status-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* 下架按钮样式 */
+.down-btn {
+    background: #ff6347;
+}
+.down-btn:hover {
+    background: #ff4500;
+}
+
+/* 退货退款按钮样式 */
+.refund-btn {
+    background: #b3001b;
+}
+.refund-btn:hover {
+    background: #8a0015;
+}
+
+/* 表单样式 */
+.item-form-item {
+    margin-bottom: 15px;
+}
+
+.item-form-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.item-form-item input,
+.item-form-item select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 按钮组 */
+.modal-btn-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.save-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.save-btn:hover {
+    background: #45a049;
+}
+
+.cancel-btn {
+    background: #666;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.cancel-btn:hover {
+    background: #555;
+}
+
+.query-btn {
+    padding: 6px 15px;
+    background: #b3001b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.query-btn:hover {
+    background: #8a0015;
+}
+/* 保留原有样式，确保面板头部固定 */
+.panel-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.panel-title {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    padding-bottom: 0;
+    border: none;
+    flex: 0 0 auto;
+}
+.panel-content {
+    height: calc(100vh - 82px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* 用户搜索按钮样式*/
+.user-query-btn {
+    padding: 6px 15px;
+    background: #b3001b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.user-query-btn:hover {
+    background: #8a0015;
+}
+
+/* 搜索筛选容器 */
+.search-container,
+#item-search-container {
+    display: none !important;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+#user-search-container.active,
+#item-search-container.active {
+    display: flex !important;
+}
+.search-mode-select, .item-search-mode, .item-sort-mode, .sort-direction {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.search-input, .item-search-input {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+.status-abnormal {
+    background-color: #ff4444;
+    color: white;
+}
