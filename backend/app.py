@@ -5,7 +5,8 @@ import pyodbc
 import jwt
 import datetime
 
-# uvicorn app:app --reload
+#made by 0421_duteryan
+#解释：0421是学号后四位
 
 # ===== 数据库连接 =====
 connection_string = (
@@ -1343,4 +1344,5 @@ def get_all_orders(request: Request):
         return {"success": False, "message": f"查询失败：{str(e)}"}
     finally:
         if conn:
+
             conn.close()
